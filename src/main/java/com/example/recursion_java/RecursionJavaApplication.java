@@ -9,8 +9,9 @@ public class RecursionJavaApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RecursionJavaApplication.class, args);
-        String result = stringReverse2("hello minh duc");
+        boolean result = isPalindrome("abcdeedcba");
         System.out.println(result);
+
     }
 
     public static String stringReverse(String input) {
@@ -32,4 +33,18 @@ public class RecursionJavaApplication {
     }
 
 
+    public static boolean isPalindrome(String input) {
+        if (input.length() == 1 || input.equals("")) {
+            return true;
+        } else {
+            char first = input.charAt(0);
+            char last = input.charAt(input.length() -1);
+            if (first == last) {
+                String nextStep = input.substring(1, input.length() -1);
+                return isPalindrome(nextStep);
+            } else {
+                return false;
+            }
+        }
+    }
 }
